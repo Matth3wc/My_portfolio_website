@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matthew Conway - Theoretical Physics Portfolio</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+ }
+body {
+font-family: 'Georgia', serif;
+line-height: 1.6;
+color: #2c2c2c;
+background: 
+    linear-gradient(135deg, rgba(248,249,250,0.9) 0%, rgba(233,236,239,0.9) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e0e0e0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+background-attachment: fixed;
+overflow-x: hidden;
+ }
+/* Hero Section */
+.hero {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+background: rgba(255,255,255,0.8);
+position: relative;
+ }
+.hero-content {
+max-width: 800px;
+animation: fadeInUp 1s ease;
+ }
+.hero h1 {
+font-size: 3.5rem;
+font-weight: normal;
+margin-bottom: 20px;
+letter-spacing: 3px;
+color: #2c2c2c;
+ }
+.hero-subtitle {
+font-size: 1.3rem;
+color: #666;
+margin-bottom: 30px;
+font-style: italic;
+ }
+.hero-description {
+font-size: 1.1rem;
+color: #555;
+max-width: 600px;
+margin: 0 auto 40px;
+line-height: 1.8;
+ }
+.cta-button {
+display: inline-block;
+padding: 15px 40px;
+background: #8b6f47;
+color: white;
+text-decoration: none;
+letter-spacing: 2px;
+text-transform: uppercase;
+font-size: 0.9rem;
+transition: all 0.3s ease;
+border: 2px solid #8b6f47;
+ }
+.cta-button:hover {
+background: transparent;
+color: #8b6f47;
+ }
+/* Gallery Sections */
+.gallery-section {
+padding: 100px 0;
+max-width: 1200px;
+margin: 0 auto;
+padding-left: 40px;
+padding-right: 40px;
+ }
+.section-title {
+font-size: 2.5rem;
+font-weight: normal;
+text-align: center;
+margin-bottom: 20px;
+letter-spacing: 2px;
+color: #2c2c2c;
+ }
+.section-subtitle {
+text-align: center;
+font-size: 1.1rem;
+color: #666;
+margin-bottom: 60px;
+font-style: italic;
+ }
+/* Exhibition Cards */
+.exhibition-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 40px;
+margin-bottom: 60px;
+ }
+.exhibition-card {
+background: rgba(255,255,255,0.95);
+padding: 0;
+border: 1px solid #e0e0e0;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+ }
+.exhibition-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+ }
+.card-image {
+height: 200px;
+background: linear-gradient(135deg, #8b6f47, #a0845c);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 3rem;
+color: white;
+position: relative;
+ }
+.card-content {
+padding: 30px;
+ }
+.card-title {
+font-size: 1.4rem;
+margin-bottom: 10px;
+color: #2c2c2c;
+font-weight: normal;
+ }
+.card-subtitle {
+font-size: 0.95rem;
+color: #8b6f47;
+margin-bottom: 15px;
+text-transform: uppercase;
+letter-spacing: 1px;
+ }
+.card-description {
+font-size: 1rem;
+color: #555;
+line-height: 1.7;
+margin-bottom: 20px;
+ }
+.card-details {
+font-size: 0.9rem;
+color: #666;
+border-top: 1px solid #f0f0f0;
+padding-top: 15px;
+ }
+/* About Section */
+.about-section {
+background: rgba(255,255,255,0.9);
+border-top: 1px solid #e0e0e0;
+border-bottom: 1px solid #e0e0e0;
+ }
+.about-content {
+display: grid;
+grid-template-columns: 1fr 2fr;
+gap: 60px;
+align-items: center;
+ }
+.about-image {
+text-align: center;
+ }
+.profile-frame {
+width: 300px;
+height: 400px;
+background: linear-gradient(135deg, #8b6f47, #a0845c);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 6rem;
+color: white;
+margin: 0 auto;
+border: 20px solid white;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+ }
+.about-text {
+font-size: 1.1rem;
+line-height: 1.8;
+color: #555;
+ }
+.about-text h3 {
+font-size: 1.3rem;
+color: #2c2c2c;
+margin-bottom: 20px;
+font-weight: normal;
+ }
+.stats-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 30px;
+margin-top: 40px;
+ }
+.stat-item {
+text-align: center;
+padding: 20px;
+background: rgba(248,249,250,0.95);
+border: 1px solid #e0e0e0;
+ }
+.stat-number {
+font-size: 2rem;
+color: #8b6f47;
+font-weight: bold;
+ }
+.stat-label {
+font-size: 0.9rem;
+color: #666;
+text-transform: uppercase;
+letter-spacing: 1px;
+ }
+/* Skills Section */
+.skills-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 30px;
+ }
+.skill-item {
+text-align: center;
+padding: 30px 20px;
+background: rgba(255,255,255,0.95);
+border: 1px solid #e0e0e0;
+transition: all 0.3s ease;
+ }
+.skill-item:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+ }
+.skill-icon {
+font-size: 2.5rem;
+margin-bottom: 20px;
+color: #8b6f47;
+ }
+.skill-title {
+font-size: 1.1rem;
+color: #2c2c2c;
+margin-bottom: 10px;
+ }
+.skill-description {
+font-size: 0.9rem;
+color: #666;
+ }
+/* Contact Section */
+.contact-section {
+background: #2c2c2c;
+color: white;
+text-align: center;
+ }
+.contact-section .section-title {
+color: white;
+ }
+.contact-section .section-subtitle {
+color: #ccc;
+ }
+.contact-info {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 40px;
+margin-top: 40px;
+ }
+.contact-item {
+padding: 20px;
+ }
+.contact-item h4 {
+font-size: 1.1rem;
+margin-bottom: 10px;
+color: #8b6f47;
+text-transform: uppercase;
+letter-spacing: 1px;
+ }
+.contact-item p {
+color: #ccc;
+ }
+/* Animations */
+@keyframes fadeInUp {
+ from {
+opacity: 0;
+transform: translateY(30px);
+ }
+ to {
+opacity: 1;
+transform: translateY(0);
+ }
+ }
+.fade-in {
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.6s ease;
+ }
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+ }
+/* Responsive Design */
+@media (max-width: 768px) {
+.nav-container {
+padding: 0 20px;
+ }
+.nav-links {
+gap: 20px;
+ }
+.hero h1 {
+font-size: 2.5rem;
+ }
+.gallery-section {
+padding: 60px 20px;
+ }
+.exhibition-grid {
+grid-template-columns: 1fr;
+ }
+.about-content {
+grid-template-columns: 1fr;
+text-align: center;
+ }
+.stats-grid {
+grid-template-columns: 1fr;
+ }
+.profile-frame {
+width: 250px;
+height: 300px;
+font-size: 4rem;
+ }
+ }
+</style>
+</head>
+<body>
+<!-- Hero Section -->
+<section id="home" class="hero">
+<div class="hero-content">
+<h1>Matthew Conway</h1>
+<p class="hero-subtitle">Theoretical Physics Student & Researcher</p>
+<p class="hero-description">
+ Exploring the fundamental principles of the universe through mathematics and computational methods.
+ Currently pursuing research in Monte Carlo Integration and offshore wind energy systems at Trinity College Dublin.
+</p>
+<a href="#research" class="cta-button">View My Work</a>
+</div>
+</section>
+<!-- Research Projects Section -->
+<section id="research" class="gallery-section">
+<h2 class="section-title fade-in">Current Research</h2>
+<p class="section-subtitle fade-in">Ongoing Projects & Academic Pursuits</p>
+<div class="exhibition-grid">
+<div class="exhibition-card fade-in">
+<div class="card-image">∫</div>
+<div class="card-content">
+<h3 class="card-title">Monte Carlo Integration Methods</h3>
+<p class="card-subtitle">Hamilton Mathematics Institute</p>
+<p class="card-description">
+ Research internship exploring various Monte Carlo integration methods including importance sampling,
+ Hybrid MCMC, Metropolis Hastings, and Gibbs sampling. Analyzing uncertainty and comparing
+ effectiveness across different sampling approaches.
+</p>
+<div class="card-details">
+<strong>Duration:</strong> May 2025 - Present<br>
+<strong>Supervisor:</strong> Prof. Stefan Sint<br>
+<strong>Funding:</strong> Hamilton Trust Summer Research Program
+</div>
+</div>
+</div>
+<div class="exhibition-card fade-in">
+<div class="card-image">🌊</div>
+<div class="card-content">
+<h3 class="card-title">Offshore Wind Turbine Platform</h3>
+<p class="card-subtitle">TFWind Research Group</p>
+<p class="card-description">
+ Designing floating base systems for offshore wind turbines as part of the Global Wind Challenge.
+ Developing mounting systems between turbines and platforms, focusing on structural analysis,
+ material optimization, and grid connectivity for turbines with 150+ meter blades.
+</p>
+<div class="card-details">
+<strong>Duration:</strong> September 2024 - Present<br>
+<strong>Role:</strong> Mounting System Development<br>
+<strong>Competition:</strong> Global Wind Challenge
+</div>
+</div>
+</div>
+<div class="exhibition-card fade-in">
+<div class="card-image">📚</div>
+<div class="card-content">
+<h3 class="card-title">Theoretical Physics Studies</h3>
+<p class="card-subtitle">Trinity College Dublin</p>
+<p class="card-description">
+ Comprehensive study of theoretical physics including Linear Algebra, Differential Equations,
+ Classical Mechanics, Electromagnetism, Thermodynamics, and Materials Science. Maintaining
+ exceptional academic performance with practical laboratory experience.
+</p>
+<div class="card-details">
+<strong>Duration:</strong> September 2023 - Present<br>
+<strong>GPA:</strong> 3.875/4.0<br>
+<strong>Focus:</strong> Mathematical Physics & Systems Analysis
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="gallery-section about-section">
+<h2 class="section-title fade-in">About the Researcher</h2>
+<p class="section-subtitle fade-in">Academic Background & Personal Journey</p>
+<div class="about-content">
+<div class="about-image fade-in">
+<div class="profile-frame">🔬</div>
+</div>
+<div class="about-text fade-in">
+<h3>Academic Excellence & Practical Application</h3>
+<p>
+ I am a second-year Theoretical Physics student at Trinity College Dublin with a passion for
+ problem-solving and understanding the fundamental workings of our universe. My academic journey
+ combines rigorous mathematical training with hands-on research experience.
+</p>
+<p>
+ Beyond academics, I maintain a diverse portfolio of practical experience including mathematics
+ tutoring, marine safety operations, and mechanical repair work. This combination of theoretical
+ knowledge and practical skills allows me to approach complex problems from multiple perspectives.
+</p>
+<p>
+ My research interests span computational mathematics, renewable energy systems, and the application
+ of mathematical methods to real-world engineering challenges.
+</p>
+</div>
+</div>
+<div class="stats-grid fade-in">
+<div class="stat-item">
+<div class="stat-number">3.875</div>
+<div class="stat-label">Current GPA</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">601/625</div>
+<div class="stat-label">Leaving Cert</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">2+</div>
+<div class="stat-label">Years Tutoring</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section id="skills" class="gallery-section">
+<h2 class="section-title fade-in">Technical Expertise</h2>
+<p class="section-subtitle fade-in">Tools & Competencies</p>
+<div class="skills-grid">
+<div class="skill-item fade-in">
+<div class="skill-icon">🐍</div>
+<h4 class="skill-title">Python Programming</h4>
+<p class="skill-description">Advanced computational analysis and data processing</p>
+</div>
+<div class="skill-item fade-in">
+<div class="skill-icon">📐</div>
+<h4 class="skill-title">SolidWorks</h4>
+<p class="skill-description">3D modeling and engineering design</p>
+</div>
+<div class="skill-item fade-in">
+<div class="skill-icon">📄</div>
+<h4 class="skill-title">LaTeX</h4>
+<p class="skill-description">Scientific document preparation and typesetting</p>
+</div>
+<div class="skill-item fade-in">
+<div class="skill-icon">∑</div>
+<h4 class="skill-title">Mathematical Analysis</h4>
+<p class="skill-description">Advanced calculus, linear algebra, and statistical methods</p>
+</div>
+<div class="skill-item fade-in">
+<div class="skill-icon">🔧</div>
+<h4 class="skill-title">Mechanical Systems</h4>
+<p class="skill-description">Repair, maintenance, and technical problem-solving</p>
+</div>
+<div class="skill-item fade-in">
+<div class="skill-icon">👥</div>
+<h4 class="skill-title">Team Leadership</h4>
+<p class="skill-description">Project coordination and collaborative research</p>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="gallery-section contact-section">
+<h2 class="section-title fade-in">Get In Touch</h2>
+<p class="section-subtitle fade-in">Available for Research Collaboration & Academic Opportunities</p>
+<div class="contact-info">
+<div class="contact-item fade-in">
+<h4>Email</h4>
+<p>mconway1@tcd.ie</p>
+</div>
+<div class="contact-item fade-in">
+<h4>Phone</h4>
+<p>+353 87 323 9671</p>
+</div>
+<div class="contact-item fade-in">
+<h4>Location</h4>
+<p>Dublin, Ireland</p>
+</div>
+<div class="contact-item fade-in">
+<h4>Institution</h4>
+<p>Trinity College Dublin</p>
+</div>
+</div>
+</section>
+<script>
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+ });
+ }
+ });
+ });
+// Fade-in animation on scroll
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+ };
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+ }
+ });
+ }, observerOptions);
+// Observe all fade-in elements
+document.querySelectorAll('.fade-in').forEach(el => {
+observer.observe(el);
+ });
+// Navigation bar scroll effect
+window.addEventListener('scroll', () => {
+const nav = document.querySelector('.nav-bar');
+if (window.scrollY > 50) {
+nav.style.background = 'rgba(255, 255, 255, 0.98)';
+nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+ } else {
+nav.style.background = 'rgba(255, 255, 255, 0.95)';
+nav.style.boxShadow = 'none';
+ }
+ });
+// Add subtle parallax effect to hero section
+window.addEventListener('scroll', () => {
+const hero = document.querySelector('.hero');
+const scrolled = window.pageYOffset;
+const rate = scrolled * -0.5;
+hero.style.transform = `translateY(${rate}px)`;
+ });
+// Typing effect for hero title (museum-style reveal)
+function revealText(element, delay = 50) {
+const text = element.textContent;
+element.textContent = '';
+element.style.opacity = '1';
+for (let i = 0; i < text.length; i++) {
+setTimeout(() => {
+element.textContent += text[i];
+ }, delay * i);
+ }
+ }
+// Initialize text reveal after page load
+window.addEventListener('load', () => {
+setTimeout(() => {
+const heroTitle = document.querySelector('.hero h1');
+const heroSubtitle = document.querySelector('.hero-subtitle');
+heroTitle.style.opacity = '0';
+heroSubtitle.style.opacity = '0';
+revealText(heroTitle, 100);
+setTimeout(() => revealText(heroSubtitle, 80), 1500);
+ }, 500);
+ });
+// Add hover effects to exhibition cards
+document.querySelectorAll('.exhibition-card').forEach(card => {
+card.addEventListener('mouseenter', () => {
+card.style.transform = 'translateY(-10px) scale(1.02)';
+ });
+card.addEventListener('mouseleave', () => {
+card.style.transform = 'translateY(-5px) scale(1)';
+ });
+ });
+</script>
+</body>
+</html>
